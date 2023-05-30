@@ -17,8 +17,11 @@ Example usage
 * Create a new token, naming it "acli-on-my-computer"
 * Copy the cli key and secret somewhere safe
 
-    docker run --rm -e ACLI_KEY="$ACLIKEY" -e ACLI_SECRET="$ACLISECRET" \
-        dcycle/acquia-cli:1 api:accounts:find
+
+```
+docker run --rm -e ACLI_KEY="$ACLIKEY" -e ACLI_SECRET="$ACLISECRET" \
+  dcycle/acquia-cli:1 api:accounts:find
+```
 
 More resources
 -----
