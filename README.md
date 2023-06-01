@@ -23,34 +23,10 @@ docker run --rm -e ACLI_KEY="$ACLIKEY" -e ACLI_SECRET="$ACLISECRET" \
   dcycle/acquia-cli:1 api:accounts:find
 ```
 
-To switch code to tag xyz:
+Example: changing the tag for an environment
+-----
 
-```
-ENV=myapp.dev
-TAG=xyz
-docker run --rm -e ACLI_KEY="$ACLIKEY" -e ACLI_SECRET="$ACLISECRET" \
-  dcycle/acquia-cli:1 api:environments:code-switch "$ENV" "tags/$TAG"
-
-echo "Will try a max of 15 times to confirm that tag $TAG has been properly deployed."
-OUTPUT="ERROR"
-TRIES=15
-for i in `seq 1 "$TRIES"`;
-do
-  OUTPUT=$(docker run --rm -e ACLI_KEY="$ACLIKEY" -e ACLI_SECRET="$ACLISECRET" dcycle/acquia-cli:1 api:environments:find "$ENV" || "ERROR")
-  if [[ "$OUTPUT" == *"ERROR"* ]]; then
-    if [ "$i" == "$TRIES" ];then
-      echo "After $TRIES tries, the environment code tag could not be changed."
-      exit 1
-    else
-      echo "Try $i of $TRIES. Code has not been switched, should not be long..."
-      sleep 1
-    fi
-  else
-    echo "Code has been switched to $TAG..."
-    break
-  fi
-done
-```
+To switch code to a specific tag, take a look at the script at ./scripts/docker-host/switch.sh which switches the code to a new branch, and then confirms the switch is done.
 
 More resources
 -----
