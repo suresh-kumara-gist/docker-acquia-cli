@@ -26,7 +26,9 @@ docker run --rm -e ACLI_KEY="$ACLIKEY" -e ACLI_SECRET="$ACLISECRET" \
 Example: changing the tag for an environment
 -----
 
-To switch code to a specific tag, take a look at the script at ./scripts/docker-host/switch.sh which switches the code to a new branch, and then confirms the switch is done.
+To switch code to a specific _existing_ tag, take a look at the script at ./scripts/docker-host/switch.sh which switches the code to a new branch, and then confirms the switch is done.
+
+**Because of [issue CLI-1087/#1540](https://github.com/acquia/cli/issues/1540) it is possible to switch to a tag that does not exist and ACLI will not fail, so make sure the tag exists.**
 
 More resources
 -----
