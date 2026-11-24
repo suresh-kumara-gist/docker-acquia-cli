@@ -1,4 +1,4 @@
-[![GitHub Actions](https://github.com/dcycle/acquia-cli/actions/workflows/config.yml/badge.svg)](https://github.com/dcycle/acquia-cli/actions/workflows/config.yml)
+[![GitHub Actions](https://github.com/dcycle/acquia-cli/actions/workflows/config.yml/badge.svg)](../../actions/workflows/config.yml)
 
 Dockerized version of [Acquia Cli](https://docs.acquia.com/acquia-cli/).
 
